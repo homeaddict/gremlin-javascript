@@ -32,7 +32,7 @@ class GremlinClient extends EventEmitter {
       accept: 'application/json',
       executeHandler,
       ...options,
-      path: path.length && !path.startsWith('/') ? `/${path}` : path
+      path: path && path.length && !path.startsWith('/') ? `/${path}` : path
     }
 
     this.useSession = this.options.session;
