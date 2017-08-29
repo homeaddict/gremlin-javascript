@@ -42,6 +42,10 @@ export default class WebSocketGremlinConnection extends EventEmitter {
     this.open = false;
     this.emit('close', event);
   }
+  
+  close() {
+    this.ws.terminate()
+  }
 
   sendMessage(message) {
     this.ws.send(message, { mask: true, binary: true }, (err) => {
